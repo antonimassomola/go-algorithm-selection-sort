@@ -6,16 +6,16 @@ import (
 
 func findSmallest(arr ...int) (int, int) {
 	smallest := arr[0]
-	smallest_index := 0
+	smallestIndex := 0
 
 	for i, v := range arr {
 		if v < smallest {
 			smallest = v
-			smallest_index = i
+			smallestIndex = i
 		}
 	}
 
-	return smallest_index, smallest
+	return smallestIndex, smallest
 }
 
 func removeIndex(s []int, index int) []int {
@@ -25,16 +25,16 @@ func removeIndex(s []int, index int) []int {
 func selectionSort(arr ...int) {
 	newArr := []int{}
 	for _, _ = range arr {
-		index, value := findSmallest(arr...)
-		newArr = append(newArr, value)
+		i, v := findSmallest(arr...)
+		newArr = append(newArr, v)
 		if len(arr) > 1 {
-			arr = removeIndex(arr, index)
+			arr = removeIndex(arr, i)
 		}
 	}
-	fmt.Println(newArr)
+	fmt.Println("Ordered array:", newArr)
 }
 
 func main() {
-	arr := []int{7,5,3,8,4,2,11,22,2122,0,2,3,88}
+	arr := []int{7, 5, 3, 8, 4, 2, 11, 22, 2122, 0, 2, 3, 88}
 	selectionSort(arr...)
 }
